@@ -23,7 +23,7 @@ enum IconViewColumnType {
 
 fn main() {
     let application = gtk::Application::new(
-        Some("com.github.gtk-rs.examples.iconview_example"),
+        Some("com.github.artonio.gtkapplauncher"),
         Default::default(),
     )
     .expect("Initialization failed...");
