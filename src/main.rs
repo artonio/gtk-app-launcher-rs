@@ -55,6 +55,26 @@ fn build_ui(application: &gtk::Application) {
         ..set_position(gtk::WindowPosition::Center);
         ..set_default_size(500, 500);
     };
+
+    let grid_layout = gtk::Grid::new();
+    let search_entry = gtk::SearchEntry::new();
+    let search_bar = cascade! {
+        gtk::SearchBar::new();
+        ..connect_entry(&search_entry);
+        ..add(&search_entry);
+    };
+    grid_layout.attach(&search_bar, 0, 0, 1, 1);
+
+    let search_bar_clone = search_bar.clone();
+
+    search_btn.connect_clicked(move |_| {
+        if search_bar_clone.get_search_mode() {
+            search_bar_clone.set_search_mode(false);
+        } else {
+            search_bar_clone.set_search_mode(true);
+        }
+    });
+
     
     // 0 = App name, 1 = Pixbuf Icon, 2 = cmd
     let col_types: [glib::Type; 3] = [glib::Type::String, gdk_pixbuf::Pixbuf::static_type(), glib::Type::String];
@@ -113,6 +133,8 @@ fn build_ui(application: &gtk::Application) {
         );
     }
 
-    window.add(&icon_view);
+    grid_layout.attach(&icon_view, 0, 1, 1, 1);
+
+    window.add(&grid_layout);
     window.show_all();
 }
