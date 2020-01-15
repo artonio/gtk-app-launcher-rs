@@ -56,6 +56,7 @@ fn build_ui(application: &gtk::Application) {
         ..set_position(gtk::WindowPosition::Center);
         ..set_default_size(500, 500);
     };
+    window.maximize();
 
     let grid_layout = gtk::Grid::new();
     let search_entry = gtk::SearchEntry::new();
@@ -159,7 +160,6 @@ fn build_icon_view_for_category(core_apps: Vec<&AppDetails>) -> gtk::ScrolledWin
     let icon_view = cascade! {
         gtk::IconView::new();
         ..set_item_padding(0);
-        ..set_columns(2);
         ..set_column_spacing(0);
         // User can select only one item at a time
         ..set_selection_mode(gtk::SelectionMode::Single);
