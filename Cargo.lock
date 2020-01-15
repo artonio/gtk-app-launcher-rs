@@ -12,6 +12,7 @@ dependencies = [
 name = "apps-iconview"
 version = "0.1.0"
 dependencies = [
+ "cascade 0.1.4 (registry+https://github.com/rust-lang/crates.io-index)",
  "gdk 0.12.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "gdk-pixbuf 0.8.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "gdk-sys 0.9.1 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -73,6 +74,11 @@ dependencies = [
  "libc 0.2.66 (registry+https://github.com/rust-lang/crates.io-index)",
  "pkg-config 0.3.17 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
+
+[[package]]
+name = "cascade"
+version = "0.1.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "cc"
@@ -437,6 +443,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 "checksum bitflags 1.2.1 (registry+https://github.com/rust-lang/crates.io-index)" = "cf1de2fe8c75bc145a2f577add951f8134889b4795d47466a54a5c846d691693"
 "checksum cairo-rs 0.8.0 (registry+https://github.com/rust-lang/crates.io-index)" = "0b528aca2ef1026235d0122495dbaee0b09479f77c51f6df8d9bb9cb1c6d6f87"
 "checksum cairo-sys-rs 0.9.2 (registry+https://github.com/rust-lang/crates.io-index)" = "ff65ba02cac715be836f63429ab00a767d48336efc5497c5637afb53b4f14d63"
+"checksum cascade 0.1.4 (registry+https://github.com/rust-lang/crates.io-index)" = "31c9ddf4a1a9dbf82e130117f81b0c292fb5416000cbaba11eb92a65face2613"
 "checksum cc 1.0.50 (registry+https://github.com/rust-lang/crates.io-index)" = "95e28fa049fda1c330bcf9d723be7663a899c4679724b34c81e9f5a326aab8cd"
 "checksum futures-channel 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)" = "fcae98ca17d102fd8a3603727b9259fcf7fa4239b603d2142926189bc8999b86"
 "checksum futures-core 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)" = "79564c427afefab1dfb3298535b21eda083ef7935b4f0ecbfcb121f0aec10866"
