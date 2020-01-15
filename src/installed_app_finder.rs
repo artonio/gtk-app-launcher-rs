@@ -38,15 +38,18 @@ impl InstalledAppsFinder {
         iaf
     }
 
-    pub fn get_apps_for_category(&self, category: String) -> Vec<&AppDetails> {
+    pub fn get_apps_for_category(&self, category: String) -> Option<Vec<&AppDetails>> {
         let mut result = Vec::new();
         if let Some(app) = &self.applications {
-            let cartegory_core_apps = app.get(&category.to_string()).unwrap();
-            for app in cartegory_core_apps {
-                result.push(app);
+            let cartegory_core_apps = app.get(&category.to_string());
+            if let Some(cca) = cartegory_core_apps {
+                for app in cca {
+                    result.push(app);
+                } 
+                return Some(result);
             }
         }
-        return result;
+        return None;
     }
 
     fn get_pixbuf_from_file_path(&self, file_path: &String) -> Option<Pixbuf> {
@@ -89,6 +92,17 @@ impl InstalledAppsFinder {
         }
 
         return new_file_name;
+    }
+
+    pub fn get_categories(&self) -> Vec<String> {
+        let mut result = vec![];
+        if let Some(a) = &self.applications {
+            for (key, _) in a.iter() {
+                result.push(String::from(key));
+            }
+        }
+
+        result
     }
 
     pub fn pretty_print(&self) {
